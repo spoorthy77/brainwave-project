@@ -1,0 +1,5 @@
+com\mycompany\brainwaveprojectgame\controller\GameController.class
+com\mycompany\brainwaveprojectgame\service\GameService.class
+com\mycompany\brainwaveprojectgame\BrainwaveApplication.class
+com\mycompany\brainwaveprojectgame\model\GameState.class
+com\mycompany\brainwaveprojectgame\BrainwaveProjectGame.class
