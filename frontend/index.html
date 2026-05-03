@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brainwave Game</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-glass">
+      <img src="https://img.icons8.com/color/96/brain.png" alt="Brainwave Logo" class="logo-img"/>
+    </div>
+    <h1>🧠 Brain-Wave Game</h1>
+    <p class="subtitle">Test your memory and speed!</p>
+    <div class="stats-row">
+      <span id="highScore" class="stat-pill">High Score: 0</span>
+      <span id="gamesPlayed" class="stat-pill">Games: 0</span>
+      <span id="lastScore" class="stat-pill">Last Score: 0</span>
+    </div>
+    <div class="progress-bar-bg hidden"><div id="progressBar" class="progress-bar"></div></div>
+    <button id="startBtn" class="pulse-btn">Start Game</button>
+    <div id="levelLabel" class="level-label"></div>
+    <div id="countdown" class="countdown"></div>
+    <div id="gameBoard" class="game-board"></div>
+    <form class="input-section" onsubmit="return false;">
+      <div class="input-wrapper">
+        <input id="userInput" type="text" placeholder="Enter numbers, comma separated" autocomplete="off"/>
+      </div>
+      <div class="input-btn-row">
+        <button id="checkBtn" type="submit" class="check-btn">Check</button>
+        <button id="hintBtn" type="button" class="hint-btn-labeled" title="Show a hint">💡 Hint</button>
+      </div>
+      <div class="input-status-row">
+        <span id="inputTimer" class="input-timer"></span>
+        <span id="retryInfo" class="retry-info"></span>
+        <span id="inputCounter" class="input-counter">Entered 0/0</span>
+      </div>
+    </form>
+    <div id="result" class="result"></div>
+    <div class="instructions-btn-row"><button id="showInstructions" class="info-btn">Game Rules & How to Play</button></div>
+    <div class="instructions" id="instructionsPanel" style="display:none;">
+      <h2>Game Rules & How to Play</h2>
+      <ul>
+        <li>The game has 5 rounds, each with increasing difficulty: <b>Easy</b>, <b>Medium</b>, <b>Hard</b>, <b>Very Hard</b>, <b>Super Hard</b>.</li>
+        <li>Each round, a set of numbers will be shown for a few seconds. Memorize them!</li>
+        <li>After the countdown, the numbers will be hidden. Enter them in order, separated by commas.</li>
+        <li>You have limited time to input your answer. The harder the level, the less time you get!</li>
+        <li>Use the <b>💡 Hint</b> button to reveal one number (costs 2 points, only once per round).</li>
+        <li>Try to get the highest score possible. Good luck!</li>
+      </ul>
+      <button id="closeInstructions" class="info-btn">Close</button>
+    </div>
+  </div>
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <div id="modalMessage"></div>
+    </div>
+  </div>
+  <!-- Footer removed for cleaner UI -->
+  <script src="app.js"></script>
+</body>
+</html>
