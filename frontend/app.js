@@ -202,7 +202,7 @@ function startGameWithCountdown() {
   }, 900);
 }
 
-function nextRound() {
+async function nextRound() {
   roundActive = false;
   resultDiv.textContent = "";
   userInput.value = "";
@@ -222,7 +222,13 @@ function nextRound() {
   const adjustedInputTime = Math.max(12, Math.min(40, level.inputTime - (difficultyOffset * 2)));
   const adjustedMemorizeTime = Math.max(3, Math.min(10, level.memorizeTime + Math.floor(difficultyOffset / 2)));
   document.getElementById("levelLabel").textContent = `Level: ${level.name}`;
-  currentNumbers = Array.from({length: numbersToMemorize}, () => Math.floor(Math.random()*90+10));
+  const response = await fetch("http://localhost:8080/game/start", {
+    method: "POST"
+});
+
+const data = await response.json();
+
+currentNumbers = data.numbers;
   renderBoard(currentNumbers);
   countdownDiv.textContent = "";
   gameBoard.style.opacity = 1;
